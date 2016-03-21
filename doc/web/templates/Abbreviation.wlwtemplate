@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Arguments>
+    <Argument Type="TextString" Label="Abbreviation (e.g. USA)">abbr</Argument>
+    <Argument Type="TextString" Label="Long form (e.g. United States of America)">full</Argument>
+  </Arguments>
+  <Body>&lt;abbr title="&lt;%= full %&gt;" style="border-bottom: 1px dotted navy"&gt;&lt;%= abbr %&gt;&lt;/abbr&gt;</Body>
+</Template>

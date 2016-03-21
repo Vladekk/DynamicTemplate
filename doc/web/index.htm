@@ -1,0 +1,191 @@
+﻿<html>
+
+<head>
+<title>Dynamic Template plug-in for Windows Live Writer</title>
+<style type="text/css">
+body {
+	font-family: Georgia;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 30px;
+}
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+}
+h3 {
+	font-size: 16pt;
+	color: #006699;
+}
+#header * {
+	margin: 0;
+	padding: 0;
+}
+#header {
+	background-color: #006699;
+	padding: 15px;
+	margin-bottom: 30px;
+	color: white;
+}
+@media screen {
+	#header {
+		padding-left: 100px;
+	}
+	#bodice {
+		padding-left: 100px;
+		width: 800px;
+	}
+}
+#download {
+	float: right;
+	background-color: #CCFF99;
+	padding: 15px;
+	border: 1px solid #336600;
+	margin-left: 5px;
+}
+#download a {
+	font-weight: bold;
+}
+.infobox {
+	padding: 1em;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+.infobox a {
+	font-weight: bold;
+}
+.warn {
+	color: red;
+}
+.screencast {
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+	<div id="header">
+		<h1>Dynamic Template Plugin for Windows Live Writer</h1>
+		<p>by Joe Cheng
+		<script type="text/javascript" language="javascript">
+		var addr = "joecheng" + "." + "com";
+		addr = "code@" + addr;
+		document.write("&lt;");
+		document.write(addr);
+		document.write("&gt;");
+		</script>
+		</p>
+	</div>
+	<div id="bodice">
+		<div id="download">
+			<a href="http://www.codeplex.com/wlwtemplate/Release/ProjectReleases.aspx">
+			Download Now</a><br>
+			<span style="font-size: 0.8em">from CodePlex</span></div>
+		<div class="main">
+			<p><strong>Dynamic Template</strong> is a powerful plugin for Windows 
+			Live Writer. You can use templates to easily insert oft-used snippets 
+			of HTML or text.</p>
+			<p>Or you can write templates that are powerful enough to be considered 
+			&quot;mini-plugins&quot; in their own right, while being radically simpler to 
+			write and distribute than traditional Windows Live Writer plugins. 
+			If you have ever written a PHP, JSP, or ASP page, you already have a 
+			good idea of how to write these kind of templates!</p>
+			<h3>For example?</h3>
+			<p><strong>Level 1 - Plain HTML:</strong> Let&#39;s start with the 
+			simplest possible scenario: you just want to insert the same snippet 
+			of HTML into your posts on a regular basis, and you don&#39;t want to 
+			have to leave Writer to do it. For this example, imagine you want to 
+			&quot;Powered by Windows Live Writer&quot; at the bottom of your posts.
+			<a href="screencasts/level1.swf">Watch Example 1.</a> (All videos linked 
+			from this page are very short Flash movies, created using
+			<a href="http://www.jingproject.com">Jing</a>.)</p>
+			<p><strong>Level 2 - HTML + Code:</strong> OK, that&#39;s useful, but 
+			it&#39;s been <a href="http://www.codeplex.com/wlwTextTemplate">done 
+			before</a>. What sets my plugin apart is that dynamic templates can 
+			contain snippets of C# code, like an ASP page! For this next 
+			example, imagine you&#39;re an Engadget blogger, liveblogging the latest Steve Jobs keynote (like
+			<a href="http://www.engadget.com/2007/06/11/steve-jobs-live-from-wwdc-2007/">
+			this one</a>). Every second counts, and the time spent inserting the 
+			little timestamp is time wasted. Let&#39;s write a template to automate 
+			that. <a href="screencasts/level2.swf">Watch Example 2.</a></p>
+			<p><strong>Level 3 - Using Selection:</strong> It&#39;s much easier to 
+			come up with useful scenarios once we introduce the ability to 
+			access what&#39;s currently selected in Windows Live Writer. Just use 
+			the built-in variable <tt>_selection</tt> in your template. This is 
+			incredibly useful for adding HTML formatting that isn&#39;t included 
+			with Windows Live Writer out of the box--for example, small caps. 
+			<a href="screencasts/level3.swf">Watch Example 3.</a> Or here&#39;s a 
+			cool idea: take whatever text you&#39;ve entered into Writer, and treat 
+			it as HTML. <a href="screencasts/level3a.swf">Watch Example 4</a>.</p>
+			<p><strong>Level 4 - Taking Input:</strong> Alright, that&#39;s cool, 
+			but what really makes things interesting is when you start asking 
+			the user for information. How about a template for highlighting text 
+			in a color of the user&#39;s choice? <a href="screencasts/level4a.swf">
+			Watch Example 5.</a></p>
+			<p>As you can see in Example 5, to ask for user input you just need 
+			to fill out a row in the Template Variables grid. The <em>Variable 
+			Name</em> is the name you will use to reference the value in your 
+			template—it must be a valid C# identifier. The <em>Data Type</em> 
+			affects both the type of that variable (Integer will be an <tt>int</tt>, 
+			Boolean will be a <tt>bool</tt>, etc.) and the appearance of the 
+			input dialog. The <tt>Label</tt> is the &quot;friendly name&quot; that will be 
+			displayed to the user in the input dialog.</p>
+			<h3>Basic Syntax</h3>
+			<p>Templates are primarily composed of HTML. You can embed C# 
+			statements using <tt>&lt;%</tt> and <tt>%&gt;</tt>. You can output C# expressions using <tt>&lt;%=</tt> 
+			and <tt>%&gt;</tt>. For example:</p>
+			<code>&lt;% string currentTime = DateTime.Now.ToString(&quot;HH:mm:ss&quot;); %&gt;<br>
+			&lt;b&gt;&lt;%= currentTime.ToUpper() %&gt;&lt;/b&gt;</code>
+			<p>Note that expressions are not terminated with a semicolon, as 
+			that would make them a statement. Conversely, statements must be 
+			terminated with semicolon. If you get a confusing compile error when 
+			you try to save your template (like &quot;CS1026: ) expected&quot;), check for 
+			this first.</p>
+			<h3>Built-in Functions and Variables</h3>
+			<p>In Example 4 above, a function called <tt>HtmlDecode</tt> 
+			is used. That’s one of several built-in functions available to templates. 
+			The complete list follows:</p>
+			<ul>
+				<li><tt>HtmlEncode(string)</tt> </li>
+				<li><tt>HtmlAttributeEncode(string)</tt> </li>
+				<li><tt>HtmlDecode(string)</tt> </li>
+				<li><tt>UrlEncode(string)</tt> </li>
+				<li><tt>UrlPathEncode(string)</tt> </li>
+				<li><tt>UrlDecode(string)</tt></li>
+			</ul>
+			<p>These pass straight through to the
+			<a href="http://msdn2.microsoft.com/en-us/library/system.web.httputility_methods.aspx">
+			corresponding methods on HttpUtility</a>.</p>
+			<p>There’s also one built-in string variable, <tt>_selection</tt>. If 
+			the user has anything selected when the template is inserted, the HTML 
+			of the selection will be assigned to this variable (requires Windows 
+			Live Writer Beta 2 or later).</p>
+			<h3>Sharing Templates</h3>
+			<p>Templates are stored as .wlwtemplate files, in your Application 
+			Data\WLWTemplates directory. You can e-mail these files to anyone 
+			who has the plugin installed—simply double-clicking the file will 
+			bring up a template installation prompt.</p>
+			<p>You can see the same prompt yourself by clicking on any of the 
+			samples below.</p>
+			<h3>Samples</h3>
+			<p>If you have the plugin installed, clicking on a link below will 
+			install the template.</p>
+			<p><a href="templates/Abbreviation.wlwtemplate">Abbreviation</a>: 
+			Creates an abbreviation that shows a definition on mouse hover. 
+			Example: <abbr title="Windows Live Writer" style="border-bottom: navy 1px dotted">WLW</abbr>
+			<br>
+			<a href="templates/HTMLize.wlwtemplate">HTMLize</a>: Takes selected 
+			text and HTML-decodes it (as seen in the
+			<a href="screencasts/level3a.swf">Example 4 video</a>).<br>
+			<a href="templates/Repeat.wlwtemplate">Repeat</a>: Repeats a string 
+			multiple times.<br>
+			</p>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
