@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.20706</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D172116-CDE0-4553-9943-EC6D0736A4F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynamicTemplate</RootNamespace>
+    <AssemblyName>DynamicTemplate</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenLiveWriter.Api, Version=0.5.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\OpenLiveWriter.SDK.0.5.0-beta\lib\net452\OpenLiveWriter.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArgumentDescription.cs" />
+    <Compile Include="Compiler\BodyParser.cs" />
+    <Compile Include="Compiler\CSharpLanguageProvider.cs" />
+    <Compile Include="Compiler\Position.cs" />
+    <Compile Include="Compiler\PositionBuffer.cs" />
+    <Compile Include="Compiler\SourcePositionTransposer.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Template.cs" />
+    <Compile Include="Compiler\TemplateCompilationException.cs" />
+    <Compile Include="Plugin\BooleanParamInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugin\BooleanParamInput.Designer.cs">
+      <DependentUpon>BooleanParamInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\DateTimeParamInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugin\DateTimeParamInput.Designer.cs">
+      <DependentUpon>DateTimeParamInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\DoubleParamInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugin\DoubleParamInput.Designer.cs">
+      <DependentUpon>DoubleParamInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\DynamicTemplateContentSource.cs" />
+    <Compile Include="Plugin\IntegerParamInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugin\IntegerParamInput.Designer.cs">
+      <DependentUpon>IntegerParamInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\MultiLineTextboxParamInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugin\MultiLineTextboxParamInput.Designer.cs">
+      <DependentUpon>MultiLineTextboxParamInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\ParamInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugin\ParamInput.Designer.cs">
+      <DependentUpon>ParamInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\SingleLineTextboxParamInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Plugin\SingleLineTextboxParamInput.Designer.cs">
+      <DependentUpon>SingleLineTextboxParamInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\TemplateChooserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\TemplateChooserForm.Designer.cs">
+      <DependentUpon>TemplateChooserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\TemplateEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\TemplateEditorForm.Designer.cs">
+      <DependentUpon>TemplateEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\TemplateInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\TemplateInputForm.Designer.cs">
+      <DependentUpon>TemplateInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\TemplateRenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\TemplateRenameForm.Designer.cs">
+      <DependentUpon>TemplateRenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\TooltipHelper.cs" />
+    <Compile Include="Plugin\WaitCursor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Plugin\BooleanParamInput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BooleanParamInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\DateTimeParamInput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DateTimeParamInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\DoubleParamInput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DoubleParamInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\IntegerParamInput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>IntegerParamInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\MultiLineTextboxParamInput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MultiLineTextboxParamInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\ParamInput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ParamInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\SingleLineTextboxParamInput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SingleLineTextboxParamInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\TemplateChooserForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TemplateChooserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\TemplateEditorForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TemplateEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\TemplateInputForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TemplateInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\TemplateRenameForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TemplateRenameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Compiler\LanguageProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
