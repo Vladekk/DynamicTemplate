@@ -10,5 +10,5 @@ or add string entry with path to release to registry
 HKEY_CURRENT_USER\SOFTWARE\OpenLiveWriter\PluginAssemblies
 
 
-Modified for Open Live Writer by Vlad, vlad@izne.com
+Modified for Open Live Writer by Vlad, vlad@izvne.com
 
